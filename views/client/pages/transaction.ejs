@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/client/css/transaction.css" />
+    <link rel="icon" href="data:," />
+  </head>
+  <body>
+    <div class="chat-container">
+      <%- include('../partials/sidebar') %>
+      <div class="content-box">
+        <%- include('../partials/header') %>
+        <div>
+          <form id="filterForm" class="filter-container">
+            <label for="startDate">Từ ngày:</label>
+            <input
+              type="date"
+              id="startDate"
+              name="startDate"
+              value="<%= typeof startDate !== 'undefined' ? startDate : '' %>"
+              required
+            />
+
+            <label for="endDate">Đến ngày:</label>
+            <input
+              type="date"
+              id="endDate"
+              name="endDate"
+              value="<%= typeof endDate !== 'undefined' ? endDate : '' %>"
+              required
+            />
+
+            <button type="submit" class="filter-btn">Lọc</button>
+            <button type="button" class="clear-btn" onclick="clearFilter()">
+              Xóa lọc
+            </button>
+          </form>
+        </div>
+        <div id="transaction-history" class="transaction-list"></div>
+      </div>
+    </div>
+
+    <form id="edit-form" class="edit-form hidden record">
+      <input type="number" name="amount" id="edit-amount" autocomplete="off" />
+      <button type="submit" class="hidden"></button>
+    </form>
+
+    <script src="/client/js/transaction.js"></script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LazyChat Bot</title>
+    <link rel="stylesheet" href="/client/css/chat.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="chat-container">
+      <%- include('../partials/sidebar') %>
+
+      <div class="chat-box">
+        <%- include('../partials/header')%>
+
+        <div class="chat-messages">
+          <% if (messages && messages.length > 0) { %> <%
+          messages.forEach(function(msg) { %>
+          <div class="message <%= msg.role === 'user' ? 'sent' : 'received' %>">
+            <%= msg.text %>
+          </div>
+          <% }) %> <% } else { %>
+          <div class="message received">Xin chào <%= username %></div>
+          <% } %>
+        </div>
+        <form class="chat-input" id="chat-form">
+          <input
+            type="text"
+            id="message-input"
+            placeholder="Type your message..."
+            required
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            autocomplete="off"
+            readonly
+            onfocus="this.removeAttribute('readonly')"
+          />
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+    <script src="/client/js/chat.js"></script>
+  </body>
+</html>

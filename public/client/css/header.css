@@ -1,0 +1,94 @@
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0088cc;
+  color: white;
+  padding: 16px;
+  font-size: 18px;
+}
+
+#user {
+  display: inline-block;
+  position: relative;
+  margin-right: 5vw;
+}
+
+#user:hover {
+  cursor: pointer;
+}
+
+#user::after {
+  content: "";
+  background-color: white;
+  position: absolute;
+  bottom: -2px;
+  left: 0px;
+  width: 0;
+  height: 2px;
+  transition: width 0.3s ease;
+}
+
+#user:hover::after {
+  width: 100%;
+}
+
+.popup {
+  position: absolute;
+  background: #0088cc;
+  border: 1px solid black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  top: 100%;
+  left: -5vh;
+  margin-top: 16px;
+  transform: translateX(-20%);
+  border-radius: 10px;
+}
+
+.menu-popup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0px;
+  background-color: #0088cc;
+  min-width: max-content;
+  width: 10vw;
+  align-items: left;
+  padding: 10px;
+}
+
+.menu-popup:hover > :not(:hover) {
+  filter: blur();
+  opacity: 0.5;
+}
+
+.menu-popup li {
+  padding: 5px;
+  list-style-type: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: 0.5s ease;
+  min-width: max-content;
+}
+
+.menu-popup li:hover {
+  border-bottom: 2px solid white;
+}
+.popup-item {
+  text-decoration: none;
+  color: white;
+}
+.hidden {
+  display: none !important;
+}
+
+.menu-btn {
+  cursor: pointer;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu-btn {
+    display: inline-block;
+  }
+}

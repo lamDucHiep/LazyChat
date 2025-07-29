@@ -1,0 +1,27 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+<link rel="stylesheet" href="/client/css/header.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<div class="chat-header">
+  <div>
+    <i class="fa fa-bars menu-btn"></i>
+    <%= typeof headerContent !== 'undefined' ? headerContent : "..." %>
+  </div>
+  <div id="user">
+    <%= typeof username !== 'undefined' ? username : "..." %>
+    <i class="fas fa-user"></i>
+    <div class="popup hidden">
+      <ul class="menu-popup">
+        <li>Cài đặt</li>
+        <li>Đóng góp ý kiến</li>
+        <li>
+          <a href="/logout" class="popup-item">Đăng xuất</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<script src="/client/js/header.js"></script>

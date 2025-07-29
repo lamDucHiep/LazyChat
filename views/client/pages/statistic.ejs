@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LazyChat Bot</title>
+    <link rel="stylesheet" href="/client/css/statistic.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="chat-container">
+      <%- include('../partials/sidebar') %>
+      <div class="content-box">
+        <%- include('../partials/header')%>
+        <canvas id="expenseChart"></canvas>
+      </div>
+    </div>
+    <script type="module" src="/client/js/chart.js"></script>
+  </body>
+</html>
