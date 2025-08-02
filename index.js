@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 const routeClient = require("./routes/client/index.route");
 const mongoose = require("mongoose");
 const mongoConnect = require("./config/db");
@@ -11,7 +11,7 @@ const session = require("express-session");
 mongoConnect();
 
 app.get("/", (req, res) => {
-  res.send("Hello");
+  res.redirect("/login");
 });
 
 app.set("views", "./views");

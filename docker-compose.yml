@@ -1,0 +1,25 @@
+services:
+  app:
+    build: lazychat-app
+    ports:
+      - "${PORT}:${PORT}"
+    volumes:
+      - .:/app
+    environment:
+      - PORT=${PORT}
+      - MONGO_URI=${MONGO_URI}
+      - SESSION_SECRET=${SESSION_SECRET}
+      - GPT_API=${OPENAI_API_KEY}
+      - JWT_SECRET=${JWT_SECRET}
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:6
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
